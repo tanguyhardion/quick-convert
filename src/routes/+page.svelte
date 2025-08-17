@@ -24,7 +24,7 @@
 		<Button href="/conversions" variant="primary" size="large">
 			Start Converting
 		</Button>
-		<Button href="/practice" variant="outline" size="large">
+		<Button href="/practice" variant="primary" size="large">
 			Practice Mode
 		</Button>
 	</div>
