@@ -13,7 +13,9 @@ const config = {
 			precompress: false,
 			strict: true
 		})
-	}
+	},
+
+	base: '/quick-convert/'
 };
 
 export default config;
