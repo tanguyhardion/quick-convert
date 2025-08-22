@@ -14,7 +14,7 @@
 
 <div class="hero">
 	<h1>
-		<img src="/icon_dark.png" alt="Quick Convert" class="hero-icon" />
+		<img src="/images/icon_dark.png" alt="Quick Convert" class="hero-icon" />
 		Quick Convert
 	</h1>
 	<p class="subtitle">Master unit conversions with mental math tricks</p>

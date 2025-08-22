@@ -6,13 +6,13 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href="/favicon.ico" />
+	<link rel="icon" href="/images/favicon.ico" />
 </svelte:head>
 
 <nav>
 	<div class="nav-container">
 		<a href={resolve('/')} class="logo">
-			<img src="/icon.png" alt="Quick Convert" class="logo-icon" />
+			<img src="/images/icon.png" alt="Quick Convert" class="logo-icon" />
 			Quick Convert
 		</a>
 		<div class="nav-links">
