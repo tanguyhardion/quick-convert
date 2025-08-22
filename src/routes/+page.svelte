@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/Card.svelte';
-	import { resolve } from '$app/paths';
+	import { resolve, asset } from '$app/paths';
 </script>
 
 <svelte:head>
@@ -14,7 +14,7 @@
 
 <div class="hero">
 	<h1>
-		<img src="/images/icon_dark.png" alt="Quick Convert" class="hero-icon" />
+		<img src={asset('/images/icon_dark.png')} alt="Quick Convert" class="hero-icon" />
 		Quick Convert
 	</h1>
 	<p class="subtitle">Master unit conversions with mental math tricks</p>

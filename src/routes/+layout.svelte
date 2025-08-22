@@ -1,18 +1,18 @@
 <script lang="ts">
 	import { page } from '$app/state';
-	import { resolve } from '$app/paths';
+	import { resolve, asset } from '$app/paths';
 
 	let { children } = $props();
 </script>
 
 <svelte:head>
-	<link rel="icon" href="/images/favicon.ico" />
+	<link rel="icon" href={asset('/images/favicon.ico')} />
 </svelte:head>
 
 <nav>
 	<div class="nav-container">
 		<a href={resolve('/')} class="logo">
-			<img src="/images/icon.png" alt="Quick Convert" class="logo-icon" />
+			<img src={asset('/images/icon.png')} alt="Quick Convert" class="logo-icon" />
 			Quick Convert
 		</a>
 		<div class="nav-links">
