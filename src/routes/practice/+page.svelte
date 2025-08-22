@@ -157,26 +157,34 @@
 <style>
 	.page-header {
 		text-align: center;
-		margin-bottom: 3rem;
-		color: white;
+		margin-bottom: 4rem;
+		padding: 2rem;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 32px;
+		backdrop-filter: blur(20px);
+		border: 1px solid rgba(255, 255, 255, 0.6);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 	}
 
 	.page-header h1 {
-		font-size: 3rem;
+		font-size: 3.5rem;
 		margin: 0 0 1rem 0;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		color: #1a202c;
+		font-weight: 900;
+		letter-spacing: -0.025em;
 	}
 
 	.page-header p {
-		font-size: 1.25rem;
-		color: rgba(255, 255, 255, 0.8);
-		max-width: 600px;
+		font-size: 1.375rem;
+		color: #2d3748;
+		max-width: 700px;
 		margin: 0 auto;
-		line-height: 1.6;
+		line-height: 1.7;
+		font-weight: 500;
 	}
 
 	.start-screen {
-		max-width: 600px;
+		max-width: 700px;
 		margin: 0 auto;
 	}
 
@@ -185,65 +193,93 @@
 	}
 
 	.session-setup p {
-		font-size: 1.125rem;
-		color: #6b7280;
-		margin-bottom: 2rem;
+		font-size: 1.25rem;
+		color: #2d3748;
+		margin-bottom: 2.5rem;
+		font-weight: 500;
 	}
 
 	.difficulty-info {
 		text-align: left;
-		margin: 2rem 0;
-		padding: 1.5rem;
-		background-color: #f8fafc;
-		border-radius: 0.5rem;
-		border: 1px solid #e2e8f0;
+		margin: 2.5rem 0;
+		padding: 2rem;
+		background: rgba(79, 70, 229, 0.1);
+		border-radius: 20px;
+		border: 2px solid rgba(79, 70, 229, 0.2);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.difficulty-info::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 4px;
+		background: #4f46e5;
+	}
+
+	@keyframes shimmer {
+		0% { background-position: -200% 0; }
+		100% { background-position: 200% 0; }
 	}
 
 	.difficulty-info h4 {
-		margin: 0 0 1rem 0;
-		color: #374151;
+		margin: 0 0 1.5rem 0;
+		color: #1a202c;
+		font-weight: 700;
+		font-size: 1.25rem;
 	}
 
 	.difficulty-info ul {
 		margin: 0;
 		padding-left: 1.5rem;
-		color: #6b7280;
+		color: #2d3748;
 	}
 
 	.difficulty-info li {
-		margin: 0.5rem 0;
-		line-height: 1.5;
+		margin: 0.75rem 0;
+		line-height: 1.6;
+		font-weight: 500;
 	}
 
 	.session-controls {
-		margin: 2rem 0;
+		margin: 2.5rem 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 1rem;
+		gap: 1.5rem;
 		flex-wrap: wrap;
 	}
 
 	.session-controls label {
-		font-weight: 600;
-		color: #374151;
+		font-weight: 700;
+		color: #1a202c;
+		font-size: 1.125rem;
 	}
 
 	.session-controls select {
-		padding: 0.5rem 1rem;
-		border: 2px solid #d1d5db;
-		border-radius: 0.5rem;
+		padding: 0.75rem 1.25rem;
+		border: 3px solid #e2e8f0;
+		border-radius: 16px;
 		font-size: 1rem;
-		background: white;
+		font-weight: 600;
+		background: rgba(255, 255, 255, 0.9);
+		backdrop-filter: blur(10px);
+		cursor: pointer;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.session-controls select:focus {
 		outline: none;
-		border-color: #3b82f6;
+		border-color: #4f46e5;
+		box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
+		transform: scale(1.02);
 	}
 
 	.practice-session {
-		max-width: 600px;
+		max-width: 700px;
 		margin: 0 auto;
 	}
 
@@ -251,55 +287,61 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-bottom: 2rem;
-		padding: 1rem 1.5rem;
-		background: rgba(255, 255, 255, 0.95);
-		border-radius: 1rem;
-		backdrop-filter: blur(10px);
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		margin-bottom: 2.5rem;
+		padding: 1.5rem 2rem;
+		background: rgba(255, 255, 255, 0.98);
+		border-radius: 24px;
+		backdrop-filter: blur(20px);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 		flex-wrap: wrap;
-		gap: 1rem;
+		gap: 1.5rem;
+		border: 1px solid rgba(255, 255, 255, 0.3);
 	}
 
 	.progress {
 		flex: 1;
-		min-width: 200px;
+		min-width: 220px;
 	}
 
 	.progress span {
 		display: block;
-		font-weight: 600;
-		color: #374151;
-		margin-bottom: 0.5rem;
+		font-weight: 700;
+		color: #1a202c;
+		margin-bottom: 0.75rem;
+		font-size: 1.125rem;
 	}
 
 	.progress-bar {
 		width: 100%;
-		height: 8px;
-		background-color: #e5e7eb;
-		border-radius: 4px;
+		height: 12px;
+		background: #e2e8f0;
+		border-radius: 8px;
 		overflow: hidden;
+		box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 	}
 
 	.progress-fill {
 		height: 100%;
-		background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-		transition: width 0.3s ease;
+		background: #4f46e5;
+		transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
 	}
 
 	.score {
-		font-weight: 600;
-		color: #374151;
+		font-weight: 700;
+		color: #1a202c;
 		text-align: right;
+		font-size: 1.125rem;
 	}
 
 	.percentage {
-		color: #6b7280;
-		font-size: 0.875rem;
+		color: #4f46e5;
+		font-size: 1rem;
+		font-weight: 600;
 	}
 
 	.session-complete {
-		max-width: 500px;
+		max-width: 600px;
 		margin: 0 auto;
 	}
 
@@ -308,44 +350,51 @@
 	}
 
 	.final-score h3 {
-		margin: 0 0 1rem 0;
-		color: #374151;
-		font-size: 1.5rem;
+		margin: 0 0 1.5rem 0;
+		color: #1a202c;
+		font-size: 2rem;
+		font-weight: 800;
 	}
 
 	.percentage-score {
-		font-size: 3rem;
-		font-weight: bold;
-		color: #3b82f6;
-		margin-bottom: 1.5rem;
+		font-size: 4rem;
+		font-weight: 900;
+		color: #4f46e5;
+		margin-bottom: 2rem;
 	}
 
 	.score-message {
-		font-size: 1.125rem;
-		color: #6b7280;
-		margin: 0 0 2rem 0;
+		font-size: 1.375rem;
+		color: #2d3748;
+		margin: 0 0 3rem 0;
 		line-height: 1.6;
+		font-weight: 600;
 	}
 
 	.actions {
 		display: flex;
-		gap: 1rem;
+		gap: 1.5rem;
 		justify-content: center;
 		flex-wrap: wrap;
 	}
 
 	@media (max-width: 768px) {
+		.page-header {
+			padding: 1.5rem;
+		}
+
 		.page-header h1 {
-			font-size: 2.5rem;
+			font-size: 2.75rem;
 		}
 
 		.page-header p {
-			font-size: 1.125rem;
+			font-size: 1.25rem;
 		}
 
 		.session-info {
 			flex-direction: column;
 			text-align: center;
+			padding: 1.25rem 1.5rem;
 		}
 
 		.score {
@@ -358,6 +407,14 @@
 
 		.actions {
 			flex-direction: column;
+		}
+
+		.percentage-score {
+			font-size: 3rem;
+		}
+
+		.difficulty-info {
+			padding: 1.5rem;
 		}
 	}
 </style>

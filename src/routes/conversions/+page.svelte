@@ -46,64 +46,79 @@
 <style>
 	.page-header {
 		text-align: center;
-		margin-bottom: 3rem;
-		color: white;
+		margin-bottom: 4rem;
+		padding: 2rem;
+		background: rgba(255, 255, 255, 0.8);
+		border-radius: 32px;
+		backdrop-filter: blur(20px);
+		border: 1px solid rgba(255, 255, 255, 0.6);
+		box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 	}
 
 	.page-header h1 {
-		font-size: 3rem;
+		font-size: 3.5rem;
 		margin: 0 0 1rem 0;
-		text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		color: #1a202c;
+		font-weight: 900;
+		letter-spacing: -0.025em;
 	}
 
 	.page-header p {
-		font-size: 1.25rem;
-		color: rgba(255, 255, 255, 0.8);
-		max-width: 600px;
+		font-size: 1.375rem;
+		color: #2d3748;
+		max-width: 700px;
 		margin: 0 auto;
-		line-height: 1.6;
+		line-height: 1.7;
+		font-weight: 500;
 	}
 
 	.converters {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-		gap: 2rem;
-		margin-bottom: 3rem;
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+		gap: 2.5rem;
+		margin-bottom: 4rem;
 	}
 
 	.tips-section {
-		max-width: 800px;
+		max-width: 900px;
 		margin: 0 auto;
 	}
 
 	.tips-content h4 {
-		color: #374151;
-		margin: 0 0 1rem 0;
-		font-size: 1.125rem;
+		color: #1a202c;
+		margin: 0 0 1.5rem 0;
+		font-size: 1.375rem;
+		font-weight: 700;
 	}
 
 	.tips-content ul {
-		margin: 0 0 2rem 0;
+		margin: 0 0 2.5rem 0;
 		padding-left: 1.5rem;
-		color: #6b7280;
+		color: #2d3748;
 	}
 
 	.tips-content li {
-		margin: 0.5rem 0;
-		line-height: 1.5;
+		margin: 0.75rem 0;
+		line-height: 1.6;
+		font-weight: 500;
 	}
 
 	.tips-content strong {
-		color: #374151;
+		color: #4f46e5;
+		font-weight: 700;
 	}
 
 	@media (max-width: 768px) {
+		.page-header {
+			padding: 1.5rem;
+		}
+
 		.page-header h1 {
-			font-size: 2.5rem;
+			font-size: 2.75rem;
 		}
 
 		.page-header p {
-			font-size: 1.125rem;
+			font-size: 1.25rem;
 		}
 
 		.converters {
