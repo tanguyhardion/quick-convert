@@ -12,10 +12,11 @@ const config = {
 			fallback: undefined,
 			precompress: false,
 			strict: true
-		})
-	},
-
-	base: '/quick-convert/'
+		}),
+		paths: {
+			base: process.env.NODE_ENV === 'production' ? '/quick-convert' : ''
+		}
+	}
 };
 
 export default config;
