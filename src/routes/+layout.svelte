@@ -1,5 +1,6 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.svg';
+	import favicon from '$lib/assets/favicon.ico';
+	import icon from '$lib/assets/icon.png';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 
@@ -12,7 +13,10 @@
 
 <nav>
 	<div class="nav-container">
-		<a href={resolve('/')} class="logo">🔄 Quick Convert</a>
+		<a href={resolve('/')} class="logo">
+			<img src={icon} alt="Quick Convert" class="logo-icon" />
+			Quick Convert
+		</a>
 		<div class="nav-links">
 			<a href={resolve('/')} class:active={page.url.pathname === '/'}>Home</a>
 			<a href={resolve('/conversions')} class:active={page.url.pathname === '/conversions'}>Conversions</a>
@@ -67,6 +71,15 @@
 		text-decoration: none;
 		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 		letter-spacing: -0.025em;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	.logo-icon {
+		width: 32px;
+		height: 32px;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
 	.logo:hover {
@@ -129,6 +142,11 @@
 
 		.logo {
 			font-size: 1.5rem;
+		}
+
+		.logo-icon {
+			width: 24px;
+			height: 24px;
 		}
 
 		.nav-links {

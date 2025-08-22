@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/Card.svelte';
+	import iconDark from '$lib/assets/icon_dark.png';
 	import { resolve } from '$app/paths';
 </script>
 
@@ -10,7 +11,10 @@
 </svelte:head>
 
 <div class="hero">
-	<h1>🔄 Quick Convert</h1>
+	<h1>
+		<img src={iconDark} alt="Quick Convert" class="hero-icon" />
+		Quick Convert
+	</h1>
 	<p class="subtitle">Master unit conversions with mental math tricks</p>
 	
 	<div class="hero-content">
@@ -127,6 +131,21 @@
 		letter-spacing: -0.05em;
 		position: relative;
 		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+
+	.hero-icon {
+		width: 80px;
+		height: 80px;
+		animation: float-icon 3s ease-in-out infinite;
+	}
+
+	@keyframes float-icon {
+		0%, 100% { transform: translateY(0px) rotate(0deg); }
+		50% { transform: translateY(-10px) rotate(5deg); }
 	}
 
 	.subtitle {
@@ -266,6 +285,13 @@
 
 		h1 {
 			font-size: 3rem;
+			flex-direction: column;
+			gap: 0.5rem;
+		}
+
+		.hero-icon {
+			width: 60px;
+			height: 60px;
 		}
 
 		.subtitle {
