@@ -74,26 +74,25 @@
 	}
 
 	.conversion-row {
-		display: flex;
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
 		align-items: center;
-		gap: 1.5rem;
+		gap: 1rem;
 		margin-bottom: 2rem;
-		flex-wrap: wrap;
 	}
 
 	.input-group {
 		display: flex;
 		flex-direction: column;
 		gap: 0.75rem;
-		flex: 1;
-		min-width: 220px;
+		min-width: 0; /* Allow shrinking */
 	}
 
 	.equals {
 		font-size: 2rem;
 		font-weight: 900;
 		color: #4f46e5;
-		margin: 0 0.5rem;
+		justify-self: center;
 		transform: rotate(0deg);
 		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
@@ -120,6 +119,9 @@
 		border-color: #4f46e5;
 		box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
 		background: white;
+	}
+
+	input:focus {
 		transform: scale(1.02);
 	}
 
@@ -135,9 +137,17 @@
 		appearance: none;
 		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%234f46e5' d='M8 12L3 7h10z'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
-		background-position: right 1rem center;
+		background-position: calc(100% - 1rem) center;
 		background-size: 1rem;
 		padding-right: 3rem;
+		background-attachment: scroll;
+	}
+
+	select:focus {
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%234f46e5' d='M8 12L3 7h10z'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: calc(100% - 1rem) center;
+		background-size: 1rem;
 	}
 
 	.mental-math-trick {
@@ -183,12 +193,15 @@
 
 	@media (max-width: 640px) {
 		.conversion-row {
-			flex-direction: column;
+			grid-template-columns: 1fr;
+			grid-template-rows: auto auto auto;
+			gap: 1rem;
 		}
 
 		.equals {
 			transform: rotate(90deg);
 			font-size: 1.5rem;
+			justify-self: center;
 		}
 
 		.equals:hover {
@@ -196,7 +209,24 @@
 		}
 
 		.input-group {
-			min-width: 100%;
+			width: 100%;
+		}
+	}
+
+	@media (max-width: 480px) {
+		.conversion-row {
+			gap: 0.75rem;
+		}
+
+		input,
+		select {
+			padding: 0.875rem 1rem;
+			font-size: 1rem;
+		}
+
+		select {
+			padding-right: 2.5rem;
+			background-size: 0.875rem;
 		}
 	}
 </style>
