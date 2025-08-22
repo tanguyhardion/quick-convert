@@ -1,6 +1,7 @@
 <script lang="ts">
 	import favicon from '$lib/assets/favicon.svg';
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
+	import { resolve } from '$app/paths';
 
 	let { children } = $props();
 </script>
@@ -11,11 +12,11 @@
 
 <nav>
 	<div class="nav-container">
-		<a href="/" class="logo">🔄 Quick Convert</a>
+		<a href={resolve('/')} class="logo">🔄 Quick Convert</a>
 		<div class="nav-links">
-			<a href="/" class:active={$page.url.pathname === '/'}>Home</a>
-			<a href="/conversions" class:active={$page.url.pathname === '/conversions'}>Conversions</a>
-			<a href="/practice" class:active={$page.url.pathname === '/practice'}>Practice</a>
+			<a href={resolve('/')} class:active={page.url.pathname === '/'}>Home</a>
+			<a href={resolve('/conversions')} class:active={page.url.pathname === '/conversions'}>Conversions</a>
+			<a href={resolve('/practice')} class:active={page.url.pathname === '/practice'}>Practice</a>
 		</div>
 	</div>
 </nav>

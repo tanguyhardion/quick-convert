@@ -4,6 +4,7 @@
 	import Card from '$lib/components/Card.svelte';
 	import { generatePracticeQuestion } from '$lib/conversions';
 	import type { PracticeQuestion as PracticeQuestionType } from '$lib/types';
+	import { resolve } from '$app/paths';
 
 	let currentQuestion = $state<PracticeQuestionType | null>(null);
 	let score = $state(0);
@@ -144,7 +145,7 @@
 					<Button onclick={startNewSession} variant="primary" size="large">
 						Practice Again
 					</Button>
-					<Button href="/conversions" variant="outline" size="medium">
+					<Button href={resolve('/conversions')} variant="outline" size="medium">
 						Review Conversions
 					</Button>
 				</div>

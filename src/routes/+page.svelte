@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/Card.svelte';
+	import { resolve } from '$app/paths';
 </script>
 
 <svelte:head>
@@ -21,10 +22,10 @@
 	</div>
 
 	<div class="cta-buttons">
-		<Button href="/conversions" variant="primary" size="large">
+		<Button href={resolve('/conversions')} variant="primary" size="large">
 			Start Converting
 		</Button>
-		<Button href="/practice" variant="primary" size="large">
+		<Button href={resolve('/practice')} variant="primary" size="large">
 			Practice Mode
 		</Button>
 	</div>
