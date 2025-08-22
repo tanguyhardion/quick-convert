@@ -1,43 +1,41 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
 	import Card from '$lib/components/Card.svelte';
-	import iconDark from '$lib/assets/icon_dark.png';
 	import { resolve } from '$app/paths';
 </script>
 
 <svelte:head>
 	<title>Quick Convert - Unit Conversion Trainer</title>
-	<meta name="description" content="Learn unit conversions with mental math tricks and practice mode" />
+	<meta
+		name="description"
+		content="Learn unit conversions with mental math tricks and practice mode"
+	/>
 </svelte:head>
 
 <div class="hero">
 	<h1>
-		<img src={iconDark} alt="Quick Convert" class="hero-icon" />
+		<img src="/icon_dark.png" alt="Quick Convert" class="hero-icon" />
 		Quick Convert
 	</h1>
 	<p class="subtitle">Master unit conversions with mental math tricks</p>
-	
+
 	<div class="hero-content">
 		<p>
-			Learn to convert between common units quickly and confidently. 
-			Our app teaches you mental math shortcuts and provides interactive practice 
-			to help you master length, weight, and temperature conversions.
+			Learn to convert between common units quickly and confidently. Our app teaches you mental math
+			shortcuts and provides interactive practice to help you master length, weight, and temperature
+			conversions.
 		</p>
 	</div>
 
 	<div class="cta-buttons">
-		<Button href={resolve('/conversions')} variant="primary" size="large">
-			Start Converting
-		</Button>
-		<Button href={resolve('/practice')} variant="primary" size="large">
-			Practice Mode
-		</Button>
+		<Button href={resolve('/conversions')} variant="primary" size="large">Start Converting</Button>
+		<Button href={resolve('/practice')} variant="primary" size="large">Practice Mode</Button>
 	</div>
 </div>
 
 <div class="features">
 	<h2>What You'll Learn</h2>
-	
+
 	<div class="features-grid">
 		<Card title="📏 Length Conversions">
 			<p>Convert between feet/inches and centimeters/meters with ease.</p>
@@ -70,20 +68,20 @@
 
 <div class="how-it-works">
 	<h2>How It Works</h2>
-	
+
 	<div class="steps">
 		<div class="step">
 			<div class="step-number">1</div>
 			<h3>Learn the Tricks</h3>
 			<p>Each conversion comes with mental math shortcuts that make calculations quick and easy.</p>
 		</div>
-		
+
 		<div class="step">
 			<div class="step-number">2</div>
 			<h3>Practice Conversions</h3>
 			<p>Use our interactive calculators to get familiar with the conversions.</p>
 		</div>
-		
+
 		<div class="step">
 			<div class="step-number">3</div>
 			<h3>Test Your Skills</h3>
@@ -118,8 +116,13 @@
 	}
 
 	@keyframes float {
-		0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
-		50% { transform: translate(-50%, -50%) rotate(180deg); }
+		0%,
+		100% {
+			transform: translate(-50%, -50%) rotate(0deg);
+		}
+		50% {
+			transform: translate(-50%, -50%) rotate(180deg);
+		}
 	}
 
 	h1 {
@@ -144,8 +147,13 @@
 	}
 
 	@keyframes float-icon {
-		0%, 100% { transform: translateY(0px) rotate(0deg); }
-		50% { transform: translateY(-10px) rotate(5deg); }
+		0%,
+		100% {
+			transform: translateY(0px) rotate(0deg);
+		}
+		50% {
+			transform: translateY(-10px) rotate(5deg);
+		}
 	}
 
 	.subtitle {
@@ -225,8 +233,9 @@
 		left: 0;
 		right: 0;
 		bottom: 0;
-		background: radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 50%),
-		            radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.05) 0%, transparent 50%);
+		background:
+			radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 50%),
+			radial-gradient(circle at 80% 20%, rgba(5, 150, 105, 0.05) 0%, transparent 50%);
 		pointer-events: none;
 	}
 

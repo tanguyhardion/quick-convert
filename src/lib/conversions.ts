@@ -55,8 +55,8 @@ const temperatureUnits: ConversionUnit[] = [
 	{
 		name: 'Fahrenheit',
 		abbreviation: '°F',
-		toBase: (value) => (value - 32) * 5/9,
-		fromBase: (value) => (value * 9/5) + 32
+		toBase: (value) => ((value - 32) * 5) / 9,
+		fromBase: (value) => (value * 9) / 5 + 32
 	}
 ];
 
@@ -65,23 +65,30 @@ export const unitCategories: UnitCategory[] = [
 		name: 'Length',
 		type: 'length',
 		units: lengthUnits,
-		mentalMathTrick: 'Remember: 1 foot ≈ 30cm (actually 30.48cm). For quick estimates, multiply feet by 3 to get rough decimeters, or use the "double and add 10%" rule for cm.'
+		mentalMathTrick:
+			'Remember: 1 foot ≈ 30cm (actually 30.48cm). For quick estimates, multiply feet by 3 to get rough decimeters, or use the "double and add 10%" rule for cm.'
 	},
 	{
 		name: 'Weight',
 		type: 'weight',
 		units: weightUnits,
-		mentalMathTrick: 'Quick trick: 1 pound ≈ 0.5kg (actually 0.454kg). To convert pounds to kg, divide by 2 and subtract 10%. For kg to pounds, double and add 10%.'
+		mentalMathTrick:
+			'Quick trick: 1 pound ≈ 0.5kg (actually 0.454kg). To convert pounds to kg, divide by 2 and subtract 10%. For kg to pounds, double and add 10%.'
 	},
 	{
 		name: 'Temperature',
 		type: 'temperature',
 		units: temperatureUnits,
-		mentalMathTrick: 'Quick estimate: °F to °C = (°F - 30) ÷ 2. For exact: (°F - 32) × 5/9. Remember key points: 0°C = 32°F, 20°C = 68°F, 37°C = 98.6°F.'
+		mentalMathTrick:
+			'Quick estimate: °F to °C = (°F - 30) ÷ 2. For exact: (°F - 32) × 5/9. Remember key points: 0°C = 32°F, 20°C = 68°F, 37°C = 98.6°F.'
 	}
 ];
 
-export function convertValue(value: number, fromUnit: ConversionUnit, toUnit: ConversionUnit): number {
+export function convertValue(
+	value: number,
+	fromUnit: ConversionUnit,
+	toUnit: ConversionUnit
+): number {
 	const baseValue = fromUnit.toBase(value);
 	return toUnit.fromBase(baseValue);
 }
@@ -90,7 +97,7 @@ export function generatePracticeQuestion(): PracticeQuestion {
 	const category = unitCategories[Math.floor(Math.random() * unitCategories.length)];
 	const fromUnit = category.units[Math.floor(Math.random() * category.units.length)];
 	let toUnit = category.units[Math.floor(Math.random() * category.units.length)];
-	
+
 	// Ensure we're converting between different units
 	while (toUnit === fromUnit) {
 		toUnit = category.units[Math.floor(Math.random() * category.units.length)];
@@ -116,7 +123,7 @@ export function generatePracticeQuestion(): PracticeQuestion {
 				decimals = 1;
 			}
 			break;
-		
+
 		case 'weight':
 			if (fromUnit.abbreviation === 'lbs') {
 				value = Math.floor(Math.random() * 200) + 10; // 10-210 lbs
@@ -126,7 +133,7 @@ export function generatePracticeQuestion(): PracticeQuestion {
 				decimals = value > 25 ? 0 : 1;
 			}
 			break;
-		
+
 		case 'temperature':
 			if (fromUnit.abbreviation === '°F') {
 				value = Math.floor(Math.random() * 100) + 32; // 32-132°F
@@ -153,6 +160,10 @@ export function formatAnswer(value: number, decimals: number): string {
 	return value.toFixed(decimals);
 }
 
-export function isAnswerClose(userAnswer: number, correctAnswer: number, tolerance: number = 0.1): boolean {
+export function isAnswerClose(
+	userAnswer: number,
+	correctAnswer: number,
+	tolerance: number = 0.1
+): boolean {
 	return Math.abs(userAnswer - correctAnswer) <= tolerance;
 }

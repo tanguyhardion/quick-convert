@@ -6,12 +6,18 @@
 
 <svelte:head>
 	<title>Unit Conversions - Quick Convert</title>
-	<meta name="description" content="Interactive unit conversion calculators for length, weight, and temperature" />
+	<meta
+		name="description"
+		content="Interactive unit conversion calculators for length, weight, and temperature"
+	/>
 </svelte:head>
 
 <div class="page-header">
 	<h1>🧮 Unit Conversions</h1>
-	<p>Use these interactive calculators to convert between different units and learn the mental math tricks.</p>
+	<p>
+		Use these interactive calculators to convert between different units and learn the mental math
+		tricks.
+	</p>
 </div>
 
 <div class="converters">
@@ -31,7 +37,7 @@
 				<li><strong>1 pound = 0.454 kg</strong> (roughly half a kg)</li>
 				<li><strong>32°F = 0°C</strong> and <strong>212°F = 100°C</strong></li>
 			</ul>
-			
+
 			<h4>Practice Mental Math:</h4>
 			<ul>
 				<li>Round numbers for quick estimates first</li>

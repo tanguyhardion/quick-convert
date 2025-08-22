@@ -18,7 +18,7 @@
 			result = inputValue;
 			return;
 		}
-		
+
 		const fromUnit = category.units[fromUnitIndex];
 		const toUnit = category.units[toUnitIndex];
 		result = convertValue(inputValue, fromUnit, toUnit);
@@ -32,30 +32,21 @@
 
 <div class="converter">
 	<h4>{category.name} Converter</h4>
-	
+
 	<div class="conversion-row">
 		<div class="input-group">
-			<input
-				type="number"
-				bind:value={inputValue}
-				placeholder="Enter value"
-				step="any"
-			/>
+			<input type="number" bind:value={inputValue} placeholder="Enter value" step="any" />
 			<select bind:value={fromUnitIndex}>
 				{#each category.units as unit, index}
 					<option value={index}>{unit.name} ({unit.abbreviation})</option>
 				{/each}
 			</select>
 		</div>
-		
+
 		<div class="equals">=</div>
-		
+
 		<div class="input-group">
-			<input
-				type="number"
-				value={result.toFixed(3)}
-				readonly
-			/>
+			<input type="number" value={result.toFixed(3)} readonly />
 			<select bind:value={toUnitIndex}>
 				{#each category.units as unit, index}
 					<option value={index}>{unit.name} ({unit.abbreviation})</option>
@@ -111,7 +102,8 @@
 		transform: rotate(180deg) scale(1.1);
 	}
 
-	input, select {
+	input,
+	select {
 		padding: 1rem 1.25rem;
 		border: 3px solid #e2e8f0;
 		border-radius: 20px;
@@ -122,7 +114,8 @@
 		backdrop-filter: blur(10px);
 	}
 
-	input:focus, select:focus {
+	input:focus,
+	select:focus {
 		outline: none;
 		border-color: #4f46e5;
 		box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.2);
@@ -192,7 +185,7 @@
 		.conversion-row {
 			flex-direction: column;
 		}
-		
+
 		.equals {
 			transform: rotate(90deg);
 			font-size: 1.5rem;

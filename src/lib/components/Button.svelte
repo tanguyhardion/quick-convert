@@ -114,10 +114,15 @@
 	}
 
 	@keyframes bounce {
-		0%, 20%, 53%, 80%, 100% {
+		0%,
+		20%,
+		53%,
+		80%,
+		100% {
 			transform: translate3d(0, 0, 0);
 		}
-		40%, 43% {
+		40%,
+		43% {
 			transform: translate3d(0, -8px, 0);
 		}
 		70% {

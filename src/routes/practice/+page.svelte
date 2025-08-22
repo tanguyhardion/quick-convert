@@ -34,7 +34,7 @@
 			score++;
 		}
 		totalQuestions++;
-		
+
 		// Small delay before next question for better UX
 		setTimeout(() => {
 			generateNewQuestion();
@@ -51,20 +51,26 @@
 		const percentage = Math.round((score / totalQuestions) * 100);
 		if (percentage >= 90) return "🎉 Excellent! You're a conversion master!";
 		if (percentage >= 75) return "👏 Great job! You're getting the hang of it!";
-		if (percentage >= 60) return "👍 Good work! Keep practicing to improve!";
-		if (percentage >= 40) return "📚 Not bad! Review the mental math tricks and try again!";
-		return "💪 Keep practicing! The more you do it, the easier it gets!";
+		if (percentage >= 60) return '👍 Good work! Keep practicing to improve!';
+		if (percentage >= 40) return '📚 Not bad! Review the mental math tricks and try again!';
+		return '💪 Keep practicing! The more you do it, the easier it gets!';
 	}
 </script>
 
 <svelte:head>
 	<title>Practice Mode - Quick Convert</title>
-	<meta name="description" content="Test your unit conversion skills with random practice questions" />
+	<meta
+		name="description"
+		content="Test your unit conversion skills with random practice questions"
+	/>
 </svelte:head>
 
 <div class="page-header">
 	<h1>🎯 Practice Mode</h1>
-	<p>Test your conversion skills with random questions. You'll get 3 attempts per question with helpful hints!</p>
+	<p>
+		Test your conversion skills with random questions. You'll get 3 attempts per question with
+		helpful hints!
+	</p>
 </div>
 
 {#if !isSessionActive && !sessionComplete}
@@ -72,7 +78,7 @@
 		<Card title="Ready to Practice?">
 			<div class="session-setup">
 				<p>Challenge yourself with {questionsPerSession} random conversion questions.</p>
-				
+
 				<div class="difficulty-info">
 					<h4>What to Expect:</h4>
 					<ul>
@@ -107,9 +113,9 @@
 			<div class="progress">
 				<span>Question {totalQuestions + 1} of {questionsPerSession}</span>
 				<div class="progress-bar">
-					<div 
-						class="progress-fill" 
-						style="width: {((totalQuestions) / questionsPerSession) * 100}%"
+					<div
+						class="progress-fill"
+						style="width: {(totalQuestions / questionsPerSession) * 100}%"
 					></div>
 				</div>
 			</div>
@@ -121,10 +127,7 @@
 			</div>
 		</div>
 
-		<PracticeQuestion 
-			question={currentQuestion} 
-			onAnswer={handleAnswer}
-		/>
+		<PracticeQuestion question={currentQuestion} onAnswer={handleAnswer} />
 	</div>
 {/if}
 
@@ -142,9 +145,7 @@
 				<p class="score-message">{getScoreMessage()}</p>
 
 				<div class="actions">
-					<Button onclick={startNewSession} variant="primary" size="large">
-						Practice Again
-					</Button>
+					<Button onclick={startNewSession} variant="primary" size="large">Practice Again</Button>
 					<Button href={resolve('/conversions')} variant="outline" size="medium">
 						Review Conversions
 					</Button>
@@ -221,8 +222,12 @@
 	}
 
 	@keyframes shimmer {
-		0% { background-position: -200% 0; }
-		100% { background-position: 200% 0; }
+		0% {
+			background-position: -200% 0;
+		}
+		100% {
+			background-position: 200% 0;
+		}
 	}
 
 	.difficulty-info h4 {

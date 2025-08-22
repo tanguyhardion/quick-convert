@@ -20,7 +20,7 @@
 
 		attempts++;
 		const numAnswer = parseFloat(userAnswer);
-		
+
 		if (isNaN(numAnswer)) {
 			feedback = 'Please enter a valid number';
 			return;
@@ -39,7 +39,10 @@
 			feedback = `The correct answer is ${formatAnswer(question.correctAnswer, question.decimals)} ${question.toUnit.abbreviation}`;
 			onAnswer(false);
 		} else {
-			const hint = numAnswer > question.correctAnswer ? 'Too high! Try a smaller number.' : 'Too low! Try a larger number.';
+			const hint =
+				numAnswer > question.correctAnswer
+					? 'Too high! Try a smaller number.'
+					: 'Too low! Try a larger number.';
 			feedback = `${hint} (Attempt ${attempts}/3)`;
 		}
 	}
@@ -84,11 +87,7 @@
 			<span class="unit-label">{question.toUnit.abbreviation}</span>
 		</div>
 
-		<button 
-			onclick={handleSubmit}
-			disabled={isComplete || !userAnswer.trim()}
-			class="submit-btn"
-		>
+		<button onclick={handleSubmit} disabled={isComplete || !userAnswer.trim()} class="submit-btn">
 			{isComplete ? 'Complete' : 'Submit'}
 		</button>
 	</div>
@@ -132,8 +131,12 @@
 	}
 
 	@keyframes shimmer {
-		0% { background-position: -200% 0; }
-		100% { background-position: 200% 0; }
+		0% {
+			background-position: -200% 0;
+		}
+		100% {
+			background-position: 200% 0;
+		}
 	}
 
 	.question h3 {

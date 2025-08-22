@@ -1,6 +1,4 @@
 <script lang="ts">
-	import favicon from '$lib/assets/favicon.ico';
-	import icon from '$lib/assets/icon.png';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
 
@@ -8,18 +6,20 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href={favicon} />
+	<link rel="icon" href="/favicon.ico" />
 </svelte:head>
 
 <nav>
 	<div class="nav-container">
 		<a href={resolve('/')} class="logo">
-			<img src={icon} alt="Quick Convert" class="logo-icon" />
+			<img src="/icon.png" alt="Quick Convert" class="logo-icon" />
 			Quick Convert
 		</a>
 		<div class="nav-links">
 			<a href={resolve('/')} class:active={page.url.pathname === '/'}>Home</a>
-			<a href={resolve('/conversions')} class:active={page.url.pathname === '/conversions'}>Conversions</a>
+			<a href={resolve('/conversions')} class:active={page.url.pathname === '/conversions'}
+				>Conversions</a
+			>
 			<a href={resolve('/practice')} class:active={page.url.pathname === '/practice'}>Practice</a>
 		</div>
 	</div>
@@ -33,7 +33,13 @@
 	:global(body) {
 		margin: 0;
 		padding: 0;
-		font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Inter', sans-serif;
+		font-family:
+			'Segoe UI',
+			-apple-system,
+			BlinkMacSystemFont,
+			Roboto,
+			'Inter',
+			sans-serif;
 		background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e0 100%);
 		min-height: 100vh;
 		color: #1a202c;
